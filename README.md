@@ -30,8 +30,7 @@ spec:
         mountPath: /shared
   volumes:
   - name: shared
-    emptyDir: {}
-		
+    emptyDir: {}		
 ```
     
 ## Multi init container
@@ -75,9 +74,7 @@ spec:
   ports:
   - port: 80
     protocol: TCP
-    targetPort: 80
-		
-		
+    targetPort: 80		
 ```
 
 ## Multi Container
@@ -108,6 +105,5 @@ spec:
         date >> /mem-info/index.html ;
         egrep --color 'Mem|Cache|Swap|' /proc/meminfo >> /mem-info/index.html ;
         sleep 2;
-      done
-			
+      done			
 ```
