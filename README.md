@@ -21,10 +21,6 @@ spec:
   initContainers:
   -  name: install
      image: busybox
-     command:
-     - wget
-     - "-O"
-     - "/shared/index.html"
   volumes:
   - name: shared
     emptyDir: {}		
