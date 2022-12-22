@@ -33,7 +33,10 @@ spec:
   volumes:
   - name: shared
     emptyDir: {}
-## Multiple init containers
+		
+```
+    
+## Multi init container
 ```python
 apiVersion: v1 
 kind: Pod 
@@ -53,4 +56,60 @@ spec:
   -  name: init-mydb
      image: busybox:1.28
      command: ['sh', '-c', "until nslookup dbservice.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for dbservice; sleep 2 ; done"]
+```
+```bash
+apiVersion: v1
+kind: Service
+metadata:
+  name: appservice
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dbservice
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+		
+		
+```
+
+## Multi Container
+```bash
+apiVersion: v1 
+kind: Pod 
+metadata:
+  name: multi-container
+spec:
+  volumes:
+  - name: shared-data
+    emptyDir: {}
+
+  containers: 
+  -  name: nginx-container
+     image: nginx
+     volumeMounts:
+     - name: shared-data
+       mountPath: /usr/share/nginx/html
+  - name: alpine-container
+    image: alpine
+    volumeMounts:
+    - name: shared-data
+      mountPath: /mem-info
+    command: ["/bin/sh" , "-c"]
+    args:
+    - while true; do
+        date >> /mem-info/index.html ;
+        egrep --color 'Mem|Cache|Swap|' /proc/meminfo >> /mem-info/index.html ;
+        sleep 2;
+      done
+			
 ```
