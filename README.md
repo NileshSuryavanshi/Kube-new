@@ -30,7 +30,7 @@ spec:
     emptyDir: {}
     
     
-  # Multi-container
+ # Multi-container
    
 ### Simple example of multi-container
 ```bash
