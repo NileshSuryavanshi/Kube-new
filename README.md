@@ -34,7 +34,7 @@ spec:
 ## Multi-container
    
  Simple example of multi-container
-```bash
+```python
 apiVersion: v1 
 kind: Pod 
 metadata:
