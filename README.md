@@ -27,7 +27,7 @@ spec:
     emptyDir: {}
     
     
- # Multi-container   
+`#RRGGBB` # Multi-container   
     
    apiVersion: v1 
 kind: Pod 
