@@ -25,9 +25,6 @@ spec:
      - wget
      - "-O"
      - "/shared/index.html"
-     volumeMounts:
-     -  name: shared
-        mountPath: /shared
   volumes:
   - name: shared
     emptyDir: {}		
