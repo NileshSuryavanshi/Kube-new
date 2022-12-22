@@ -12,7 +12,6 @@ spec:
      volumeMounts:
      -  name: shared
         mountPath: /usr/share/nginx/html
-# These containers are run during pod
   initContainers:
   -  name: install
      image: busybox
@@ -20,7 +19,6 @@ spec:
      - wget
      - "-O"
      - "/shared/index.html"
-     - https://kubesimplify.com/
      volumeMounts:
      -  name: shared
         mountPath: /shared
