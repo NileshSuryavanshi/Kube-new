@@ -28,5 +28,38 @@ spec:
   volumes:
   - name: shared
     emptyDir: {}
-    ```
+    
+    
+    
+    # Multi-container
    
+### Simple example of multi-container
+
+```bash
+apiVersion: v1 
+kind: Pod 
+metadata:
+  name: multi-container
+spec:
+  volumes:
+  - name: shared-data
+    emptyDir: {}
+
+  containers: 
+  -  name: nginx-container
+     image: nginx
+     volumeMounts:
+     - name: shared-data
+       mountPath: /usr/share/nginx/html
+  - name: alpine-container
+    image: alpine
+    volumeMounts:
+    - name: shared-data
+      mountPath: /mem-info
+    command: ["/bin/sh" , "-c"]
+    args:
+    - while true; do
+        date >> /mem-info/index.html ;
+        egrep --color 'Mem|Cache|Swap|' /proc/meminfo >> /mem-info/index.html ;
+        sleep 2;
+      done
