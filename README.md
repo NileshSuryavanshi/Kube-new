@@ -1,9 +1,7 @@
 
-# ALL ABOUT AND KUBE
+# ALL FUN AND KUBE
 
 JUST MY PERSONAL PROJECT ON KUBE
-
-
 
 ## InitContainer
 ```bash
