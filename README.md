@@ -1,4 +1,7 @@
 # Init container
+
+### Simple example of init container
+
 apiVersion: v1
 kind: Pod
 metadata:
