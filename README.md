@@ -6,7 +6,7 @@ JUST MY PERSONAL PROJECT ON KUBE
 
 
 ## InitContainer
-
+```bash
 apiVersion: v1
 kind: Pod
 metadata:
@@ -34,7 +34,7 @@ spec:
   - name: shared
     emptyDir: {}
 ## Multiple init containers
-
+```bash
 apiVersion: v1 
 kind: Pod 
 metadata:
