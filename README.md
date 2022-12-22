@@ -34,7 +34,7 @@ spec:
   - name: shared
     emptyDir: {}
 ## Multiple init containers
-```bash
+```python
 apiVersion: v1 
 kind: Pod 
 metadata:
@@ -53,3 +53,4 @@ spec:
   -  name: init-mydb
      image: busybox:1.28
      command: ['sh', '-c', "until nslookup dbservice.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for dbservice; sleep 2 ; done"]
+```
