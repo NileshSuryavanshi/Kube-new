@@ -30,6 +30,9 @@ spec:
     emptyDir: {}
     
     
+    ```
+    
+    
  # Multi-container
    
 ### Simple example of multi-container
