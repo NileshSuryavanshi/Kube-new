@@ -30,11 +30,9 @@ spec:
     emptyDir: {}
     
     
-    
-    # Multi-container
+  # Multi-container
    
 ### Simple example of multi-container
-
 ```bash
 apiVersion: v1 
 kind: Pod 
