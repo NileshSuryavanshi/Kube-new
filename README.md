@@ -1,6 +1,7 @@
-# Init container
+# HEADING 
+this is heading
 
-### Simple example of init container
+## init container
 ```bash
 apiVersion: v1
 kind: Pod
@@ -28,14 +29,11 @@ spec:
   volumes:
   - name: shared
     emptyDir: {}
-    
-    
     ```
-    
-    
- # Multi-container
+        
+## Multi-container
    
-### Simple example of multi-container
+ Simple example of multi-container
 ```bash
 apiVersion: v1 
 kind: Pod 
@@ -64,3 +62,4 @@ spec:
         egrep --color 'Mem|Cache|Swap|' /proc/meminfo >> /mem-info/index.html ;
         sleep 2;
       done
+      ```
