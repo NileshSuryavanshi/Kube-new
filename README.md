@@ -1,7 +1,7 @@
 # Init container
 
 ### Simple example of init container
-
+```bash
 apiVersion: v1
 kind: Pod
 metadata:
@@ -28,5 +28,5 @@ spec:
   volumes:
   - name: shared
     emptyDir: {}
-    
+    ```
    
