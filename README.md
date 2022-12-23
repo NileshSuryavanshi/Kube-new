@@ -186,6 +186,6 @@ curl --cacert /etc/kubernetes/pki/ca.crt $APISERVER/apis/apps/v1 --header "Autho
 from inside pod you can use ```var/run/secrets/kubernetes.io/serviceaccount/token``` path for the token to call the kubernetes service
 proxy
 ```
-kubectl proxy --port=8080 &s
+kubectl proxy --port=8080 
 curl localhost:8080/apis/apps/v1/deployments
 ```
