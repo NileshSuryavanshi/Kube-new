@@ -1,0 +1,51 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout the source code from your Git repository
+                // You need to replace the repository URL and credentials
+                checkout([$class: 'GitSCM', 
+                          branches: [[name: '*/main']], 
+                          userRemoteConfigs: [[
+                              url: 'https://github.com/NileshSuryavanshi/your-repo.git',
+                              credentialsId: '8978786577467366bsukkkd890'
+                          ]]
+                ])
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                // Build your application, assuming it's a Node.js app
+                sh 'npm install'
+            }
+        }
+        
+        stage('Test') {
+            steps {
+                // Run tests on your application
+                sh 'npm test'
+            }
+        }
+        
+        stage('Deploy') {
+            steps {
+                // Deploy your application
+                // This could involve pushing to a server, Docker registry, etc.
+                // For simplicity, this example does not include deployment steps
+            }
+        }
+    }
+    
+    post {
+        // Post-build actions
+        success {
+            echo 'Pipeline succeeded! Your application is tested and ready for deployment.'
+        }
+        failure {
+            echo 'Pipeline failed! Please check your code and tests.'
+        }
+    }
+}
