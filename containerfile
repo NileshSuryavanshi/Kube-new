@@ -1,8 +1,6 @@
-From redhat/centos
-name nilesh suryavanshi
-Label description = " just a apache server "
-Run  yum install -y && \
-  yum clean all
-Run echo "Hello from nil" 
-Expose 80
-Entrypoint ["httpd","-D","FOREGROUND"]
+FROM rhel9
+LABEL description = " just a apache server "
+RUN yum install -y httpd
+CMD echo "Hello from nil"
+EXPOSE 80
+ENTRYPOINT ["/usr/sbin/httpd","-D","FOREGROUND"]
